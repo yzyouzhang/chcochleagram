@@ -67,14 +67,14 @@ class CochlearFilter:
         if np_filters.dtype=='float64':
             np_filters = np_filters.astype(np.float32)
 
-        if self.apply_in_fourier:
-            # Currently complex valued numbers are handled by stacking the
-            # real and complex components.
-            # TODO: update to use complex operations for ch>1.8
-            if len(np_filters.shape) == 2:
-                np_filters = np.stack([np_filters,
-                                       np.zeros(np_filters.shape)],
-                                       axis=-1)
+        # if self.apply_in_fourier:
+        #     # Currently complex valued numbers are handled by stacking the
+        #     # real and complex components.
+        #     # TODO: update to use complex operations for ch>1.8
+        #     if len(np_filters.shape) == 2:
+        #         np_filters = np.stack([np_filters,
+        #                                np.zeros(np_filters.shape)],
+        #                                axis=-1)
 
         chfilters = np_filters
         return chfilters, filter_extras
